@@ -8,5 +8,5 @@ include_once './vendor/autoload.php';
 use Project\Product;
 
 $product = new Product();
-
 $product->store($_POST);
+header('Location: ./index.php');

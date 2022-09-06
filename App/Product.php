@@ -11,9 +11,10 @@ class Product
     {
         session_start();
 
-        $_SESSION['products'][]= $data;
+        // $_SESSION['products'][]= $data;
+        array_push($_SESSION,$data);
         // echo "<pre>";
-        // print_r($_SESSION);
+         print_r($_SESSION);
       
     }
 }

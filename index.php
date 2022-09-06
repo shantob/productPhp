@@ -9,12 +9,13 @@
 </head>
 
 <body>
-    <?php 
+    <?php
+    session_start();
     //include_once "store.php";
-     $products= []
-     ?>
+    $products = $_SESSION['products'];
+    ?>
     <div class="class" style="width: 500px; margin:0 auto;">
-        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+        <form action="./store.php" method="post">
             <input type="number" name="id" placeholder="Endter Product Id">
             <input type="text" name="name" placeholder="Endter Product Name">
             <input type="text" name="price" placeholder="Endter Product Price">
