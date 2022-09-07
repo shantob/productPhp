@@ -13,5 +13,5 @@ include_once './vendor/autoload.php';
 use Project\Controllers\Food;
 
 $foodlist = new Food();
-$foodlist->store($_POST);
+$foodlist->edit($_POST);
 header('location: index.php');

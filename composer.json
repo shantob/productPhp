@@ -1,10 +1,7 @@
 {
-    "name": "hp/product-php",
-    "authors": [
-        {
-            "name": "Shanto Bepary",
-            "email": "shantobepary575@gmail.com"
-        }
-    ],
-    "require": {}
+  "autoload": {
+    "psr-4": {
+      "Project\\": "App/"
+    }
+  }
 }

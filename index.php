@@ -9,44 +9,52 @@
 </head>
 
 <body>
+<a href="create.php"><button>Create a Student</button></a>
     <?php
     session_start();
-    //include_once "store.php";
-    $products = $_SESSION['products'];
+    $foodlist = $_SESSION['foodlist'] ?? [];
+    //
+
+    if (isset($_SESSION['massage'])) {
+        echo $_SESSION['massage'];
+        unset($_SESSION['massage']);
+    }
     ?>
-    <div class="class" style="width: 500px; margin:0 auto;">
-        <form action="./store.php" method="post">
-            <input type="number" name="id" placeholder="Endter Product Id">
-            <input type="text" name="name" placeholder="Endter Product Name">
-            <input type="text" name="price" placeholder="Endter Product Price">
-            <button>ADD Product</button>
-        </form>
-        <table border="1" style="width: 100%;">
-            <tbody>
+
+    <table border="1" style="width: 100%;">
+        <tbody>
+            <tr>
+                <td>#</td>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Action</td>
+            </tr>
+            <?php
+            //if (isset($_SESSION['products'])) {
+            //$products = $_SESSION['products'];
+            $i = 1;
+            foreach ($foodlist as $food) { ?>
                 <tr>
-                    <td>Id</td>
-                    <td>Name</td>
-                    <td>Price</td>
-                    <td colspan="2">Action</td>
+                    <td><?= $i++ ?></td>
+                    <td><?= $food['id'] ?></td>
+                    <td><?= $food['name'] ?></td>
+                    <td><?= $food['price'] ?></td>
+                    <td>
+                        <a href="show.php?id=<?= $food['id'] ?>"><button style="color: green;">Show</button></a>
+                        <a href="edit.php?id=<?= $food['id'] ?>"><button style="color: blue;">Edit</button></a>
+                        <a href="delete.php?id=<?= $food['id'] ?>"><button style="color:crimson;">Delete</button></a>
+                    </td>
                 </tr>
-                <?php
-                foreach ($products as $product) {
-                ?>
-                    <tr>
-                        <td><?= $product['id'] ?></td>
-                        <td><?= $product['name'] ?></td>
-                        <td><?= $product['price'] ?></td>
-                        <td style="color: blue;">Edit</td>
-                        <td style="color: red;">Delete</td>
-                    </tr>
-                <?php
-                }
+            <?php
 
-                ?>
-            </tbody>
+            }
+            //}
+            ?>
+        </tbody>
 
-        </table>
-    </div>
+    </table>
+
 </body>
 
 </html>
