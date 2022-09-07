@@ -13,10 +13,10 @@ class Food
     }
     public function store($data)
     {
-      
+
         $_SESSION['foodlist'][] = $data;
 
-        $_SESSION['massage']= "Successfully Created!!!";
+        $_SESSION['massage'] = "Successfully Created!!!";
 
         // $foodlist = [['id' => '1112', 'name' => 'Kacchi', 'price' => '450', 'stock' => '1000'], ['id' => '1113', 'name' => 'Chicken Biriani ', 'price' => '450', 'stock' => '2000']];
 
@@ -32,12 +32,15 @@ class Food
         echo "<pre>";
         print_r($_SESSION);
     }
+
+
+
     public function show($id)
     {
         echo "<pre>";
         //print_r($_SESSION['foodlist']);
         $foodlist = $_SESSION['foodlist'];
-        $foodInfo= null;
+        $foodInfo = null;
         foreach ($foodlist as $key => $food) {
             if ($food['id'] == $id) {
                 $foodInfo = $_SESSION['foodlist'][$key];
@@ -45,35 +48,48 @@ class Food
         }
         //print_r($foodInfo);
         return $foodInfo;
-
     }
+
+
     public function edit($id)
     {
         echo "<pre>";
         //print_r($_SESSION['foodlist']);
         $foodlist = $_SESSION['foodlist'];
-        $foodInfo= null;
+        $editFood = null;
         foreach ($foodlist as $key => $food) {
             if ($food['id'] == $id) {
-                $foodInfo = $_SESSION['foodlist'][$key];
+                $editFood = $_SESSION['foodlist'][$key];
             }
         }
         //print_r($foodInfo);
-        return $foodInfo;
-       // $_SESSION['foodlist'][] = $data;
-        $_SESSION['massage']= "Successfully Updated!!!";
+        // $_SESSION['massage']= "Successfully Updated!!!";
+        return $editFood;
+        // $_SESSION['foodlist'][] = $data;
 
+    }
+
+
+
+
+
+    public function update($data)
+    {
+
+        $_SESSION['foodlist'][] = $data;
+
+        $_SESSION['massage'] = "Successfully Updated!!!";
     }
     public function destroy($id)
     {
-       
+
         $foodlist = $_SESSION['foodlist'];
         foreach ($foodlist as $key => $food) {
             if ($food['id'] == $id) {
                 unset($_SESSION['foodlist'][$key]);
             }
         }
-        $_SESSION['massage']= "Successfully Deleted!!!";
+        $_SESSION['massage'] = "Successfully Deleted!!!";
     }
 }
 

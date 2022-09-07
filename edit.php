@@ -23,9 +23,9 @@ $foodInfo = $foodlist->edit($_GET['id']);
     <h2>Edit Food Product</h2>
     <div class="class" style="width: 500px; margin:0 auto;">
         <form action="./update.php" method="post">
-            <input type="number" name="id" value="<?= $foodInfo['id'] ?>" placeholder="Endter Product Id">
-            <input type="text" name="name"  value="<?= $foodInfo['name'] ?>" placeholder="Endter Product Name">
-            <input type="text" name="price" value="<?= $foodInfo['price'] ?>" placeholder="Endter Product Price">
+            Product Id = <input type="number" name="id" value="<?= $foodInfo['id'] ?>" placeholder="Endter Product Id">
+            Product Name = <input type="text" name="name"  value="<?= $foodInfo['name'] ?>" placeholder="Endter Product Name">
+            Product Price = <input type="text" name="price" value="<?= $foodInfo['price'] ?>" placeholder="Endter Product Price">
             <button>Edit Product</button>
             <button disabled>Cancle</button>
         </form>
